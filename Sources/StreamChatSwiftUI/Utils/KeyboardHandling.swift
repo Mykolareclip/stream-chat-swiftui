@@ -91,6 +91,7 @@ func resignFirstResponder() {
 }
 
 public let getStreamFirstResponderNotification = "io.getstream.inputView.becomeFirstResponder"
+public let getStreamFirstResponderWithoutAnimationNotification = "io.getstream.inputView.becomeFirstResponder.noAnimation"
 
 func becomeFirstResponder() {
     NotificationCenter.default.post(

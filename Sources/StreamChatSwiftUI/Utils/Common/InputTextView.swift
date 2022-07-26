@@ -69,6 +69,18 @@ class InputTextView: UITextView, AccessibilityView {
             name: NSNotification.Name(getStreamFirstResponderNotification),
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(becomeFirstResponderWithoutAnimation),
+            name: NSNotification.Name(getStreamFirstResponderWithoutAnimationNotification),
+            object: nil
+        )
+    }
+
+    @objc func becomeFirstResponderWithoutAnimation() {
+        UIView.animate(withDuration: 0) { [unowned self] in
+            self.becomeFirstResponder()
+        }
     }
     
     open func setUpAppearance() {
